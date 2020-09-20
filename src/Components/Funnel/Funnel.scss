@@ -11,5 +11,10 @@
     position: absolute;
     top: 20px;
     left: 0px;
+
+    @include media-breakpoint-up(md) {
+      top: 30px;
+      left: 25px;
+    }
   }
 }

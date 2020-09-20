@@ -24,3 +24,10 @@
     padding-right: 48px;
   }
 }
+
+@media (min-width: 768px) {
+  .btn-backButton {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
