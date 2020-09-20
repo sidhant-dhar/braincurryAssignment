@@ -1,0 +1,38 @@
+.FormTemplate {
+  @import '../../scss/bootstrap';
+
+  &__input {
+    width: 80%;
+    border-radius: $spacer * 0.5;
+
+    @include media-breakpoint-up(md) {
+      width: 50%;
+    }
+  }
+
+  &__inputHeading {
+    font-family: 'Roboto-Medium';
+    font-size: $spacer * 0.75;
+  }
+
+  &__select {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: $white;
+    font-family: 'Roboto-Medium';
+    padding: 6px 12px;
+    color: $black;
+  }
+
+  &__errors {
+    color: $braincurryRed;
+    font-size: $spacer * 0.625;
+    font-family: 'Roboto-Medium';
+    line-height: 12px;
+  }
+
+  &__hasError {
+    border: 1px solid $braincurryRed;
+  }
+}

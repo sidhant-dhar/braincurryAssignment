@@ -1,0 +1,26 @@
+.btn-customPrimary {
+  background-color: #0091ff;
+  color: #fff;
+  border-radius: 20px;
+  padding-left: 64px;
+  padding-right: 64px;
+  font-family: 'Roboto-Medium';
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.btn-backButton {
+  color: #000;
+  font-family: 'Roboto-Medium';
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+}
+
+@media (max-width: 768px) {
+  .btn-customPrimary {
+    font-size: 16px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}

@@ -1,0 +1,15 @@
+.Funnel {
+  @import '../../scss/bootstrap';
+
+  &__heading {
+    font-family: 'Roboto-Regular';
+    line-height: $spacer;
+    font-size: $spacer * 0.875;
+  }
+
+  &__backButton {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+  }
+}

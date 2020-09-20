@@ -3,12 +3,11 @@
 // Project imports to be done here
 @import './variables';
 @import './fonts';
-
-// Mixins imports
-@import './mixins/transitions';
+@import './buttonStyles';
 
 // ***Vendor imports [Bootstrap scss files] to be done here***
 // Import all the bootstrap scss files at the bottom of the file
+
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 

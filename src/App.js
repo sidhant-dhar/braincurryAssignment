@@ -1,30 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import logo from './logo.svg';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import data from './Data';
+import Funnel from './Components/Funnel/Funnel';
 import './App.scss';
 
 function App() {
+  const [currentStep, setCurrentStep] = useState(30);
+  const [formData, setData] = useState(data);
+
+  const showResults = () => {
+    const result = formData
+      .map((e) => e.data)
+      .reduce((a, b) => {
+        return a.concat(b);
+      })
+      .map(({ name, type, data, ...elem }) => elem);
+
+    console.log(result);
+  };
+
+  const getFormData = (e, stepper) => {
+    const tempData = formData.filter((elem) => {
+      return elem.step === stepper;
+    });
+
+    const valuesArray = Object.values(e);
+
+    tempData[0].data.forEach((element, i) => {
+      element.value = valuesArray[i];
+    });
+
+    const mutatedFormData = formData.filter((elem) => {
+      return elem.step !== stepper;
+    });
+    mutatedFormData.push(tempData[0]);
+    setData(mutatedFormData);
+    setCurrentStep(currentStep !== 90 ? currentStep + 30 : currentStep + 10);
+
+    if (currentStep === 90) {
+      showResults();
+    }
+  };
+
+  const backButton = () => {
+    const previousStep = currentStep - 30;
+    setCurrentStep(previousStep);
+  };
+
   return (
-    <Container fluid className="p-0 m-0 overflow-hidden">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          <code>src/App.js</code>
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-          Learn React YO
-        </a>
-      </header>
+    <Container fluid className='p-0 m-0 overflow-hidden MainForm'>
+      <ProgressBar now={currentStep} />
+
+      <h4 className='MainForm__heading mt-5 text-center'>Football Registration</h4>
+      {formData.map((elem) => (
+        <Funnel
+          data={elem.data}
+          heading={elem.heading}
+          key={`elem${elem.heading}`}
+          step={elem.step}
+          currentStep={currentStep}
+          formData={getFormData}
+          backButton={backButton}
+        />
+      ))}
     </Container>
   );
 }
