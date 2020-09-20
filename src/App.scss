@@ -1,0 +1,8 @@
+.MainForm {
+  @import './scss/bootstrap';
+
+  &__heading {
+    font-family: 'Roboto-Regular';
+    line-height: $spacer * 1.75;
+  }
+}
