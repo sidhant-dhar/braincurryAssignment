@@ -18,6 +18,7 @@ function App() {
       .map(({ name, type, data, ...elem }) => elem);
 
     console.log(result);
+    alert('Form successfully submitted. Check the console to view the form data!');
   };
 
   const getFormData = (e, stepper) => {
